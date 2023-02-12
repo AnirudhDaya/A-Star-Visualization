@@ -189,7 +189,6 @@ class a_star:
         while current in came_from:
             current = came_from[current]
             current.make_path()
-            print(current.row,current.col)
             draw()
 
     def algorithm(draw, grid, start, end, grid_array):
@@ -217,7 +216,6 @@ class a_star:
             neighbors = a_star.get_neighbors(grid,current)
             for neighbor in neighbors:
                 temp_g_score = g_score[current] + a_star.weight(grid,grid_array,current, neighbor)
-                # print(temp_g_score)
                 if temp_g_score < g_score[neighbor]:
                     came_from[neighbor] = current
                     g_score[neighbor] = temp_g_score
@@ -239,7 +237,6 @@ def main(win, width):
     ROWS = 30
     grid = grids.make_grid(ROWS, width)
     grid_array= np.ones((ROWS,ROWS))
-    # print(grid_array)
     start = None
     end = None
     count=0
@@ -295,7 +292,6 @@ def main(win, width):
                     end = None
                     grid = grids.make_grid(ROWS, width)
                 
-                # print(grid_array)
 
     pygame.quit()
 
